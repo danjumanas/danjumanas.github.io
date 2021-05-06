@@ -23,6 +23,13 @@
             <div class="hamburger-lines"></div>
             <div class="hamburger-lines"></div>
         </div>
+
+        <div class="hamburger-revert">
+            <div class="hamburger-lines"></div>
+            <div class="hamburger-lines"></div>
+            <div class="hamburger-lines"></div>
+        </div>
+
         <div class="toggled-nav-links">
             <a href="#">Home</a>
             <a href="#">About</a>
@@ -121,10 +128,24 @@
 
     <script type="text/javascript">
 
-        document.querySelector(".hamburger").addEventListener("click", function() {
-            document.querySelector(".toggled-nav-links").style.display = block;
-            })
+        const show = e => {
+            document.querySelector(".toggled-nav-links").style.display = "block";
+            document.querySelector(".hero-section").style.paddingTop = "150px";
+            document.querySelector(".hamburger").style.display = "none";
+            document.querySelector(".hamburger-revert").style.display = "block";
+        }
 
+        const hide = e => {
+            document.querySelector(".toggled-nav-links").style.display = "none";
+            document.querySelector(".hero-section").style.paddingTop = "3rem";
+            document.querySelector(".hamburger").style.display = "block";
+            document.querySelector(".hamburger-revert").style.display = "none";
+        }
+
+        document.querySelector(".hamburger").addEventListener("click", show );
+
+        document.querySelector(".hamburger-revert").addEventListener("click", hide);
+        
 
     </script>
 </body>
